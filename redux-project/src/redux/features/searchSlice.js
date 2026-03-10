@@ -6,7 +6,7 @@ const searchSlice = createSlice({
         query: '',
         activeTabs: "photos",
         results: [],
-        loadingState: false,
+        loading: false,
         error: null
     },
     reducers: {
@@ -19,13 +19,24 @@ const searchSlice = createSlice({
         },
         setResults(state, action) {
             state.results = action.payload;
-        },
-        setLoadingState(state, action) {
-            state.loadingState = action.payload;
-        },
-    },
-})
+            state.loading = false;
 
-export const { setQuery, setActiveTabs, setResults, setLoadingState } = searchSlice.actions;
+        },
+        setLoadingState(state) {
+            state.loading = true;
+            state.error = null;
+        },
+        setErrorState(state, action) {
+            state.loading = false;
+            state.error = action.payload;
+        },
+        clearResults(state) {
+            state.results = [];
+        }
+    }
+});
+
+
+export const { setQuery, setActiveTabs, setResults, setLoadingState, setErrorState } = searchSlice.actions;
 
 export default searchSlice.reducer;
