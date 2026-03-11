@@ -1,14 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCollection } from "../redux/features/collectionSlice";
 
 const ResultCard = ({ item }) => {
-  const addToCollection = ({ item }) => {
-    let oldData = JSON.parse(localStorage.getItem("collection")) || [];
+  const dispatch = useDispatch();
 
-    let newData = [...oldData, item];
-    localStorage.setItem("collection", JSON.stringify(newData));
-    console.log(newData);
+  const handleAddToCollection = () => {
+    dispatch(addToCollection(item));
+    console.log("hey");
   };
-
   return (
     <>
       <div className="w-[18vw] h-80 rounded bg-gray-300 relative">
@@ -39,7 +39,9 @@ const ResultCard = ({ item }) => {
           </h1>
           <button
             className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-3 py-1 cursor-pointer"
-            onClick={() => addToCollection({ item })}
+            onClick={() => {
+              handleAddToCollection(item);
+            }}
           >
             save
           </button>
