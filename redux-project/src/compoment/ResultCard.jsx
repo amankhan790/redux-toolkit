@@ -1,6 +1,14 @@
 import React from "react";
 
 const ResultCard = ({ item }) => {
+  const addToCollection = ({ item }) => {
+    let oldData = JSON.parse(localStorage.getItem("collection")) || [];
+
+    let newData = [...oldData, item];
+    localStorage.setItem("collection", JSON.stringify(newData));
+    console.log(newData);
+  };
+
   return (
     <>
       <div className="w-[18vw] h-80 rounded bg-gray-300 relative">
@@ -29,7 +37,10 @@ const ResultCard = ({ item }) => {
           <h1 className="text-lg font-bold pl-2 shadow-md capitalize">
             {item.tittle.slice(0, 30)}...
           </h1>
-          <button className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-3 py-1 cursor-pointer">
+          <button
+            className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-3 py-1 cursor-pointer"
+            onClick={() => addToCollection({ item })}
+          >
             save
           </button>
         </div>
