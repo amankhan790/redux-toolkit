@@ -33,6 +33,7 @@ const searchSlice = createSlice({
         clearResults(state) {
             state.results = [];
         }
+       
     }
 });
 

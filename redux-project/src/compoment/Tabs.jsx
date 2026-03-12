@@ -13,7 +13,7 @@ const Tabs = () => {
         return (
           <button
             key={id}
-            className={`${activeTabs.includes(tab) ? "bg-blue-700 text-white" : "bg-white text-black"} px-5 py-2 rounded border-2`}
+            className={`${activeTabs.includes(tab) ? "bg-blue-700 cursor-pointer text-white" : "bg-white cursor-pointer text-black"} px-5 py-2 rounded border-2`}
             onClick={() => dispatch(setActiveTabs(tab))}
           >
             {tab}

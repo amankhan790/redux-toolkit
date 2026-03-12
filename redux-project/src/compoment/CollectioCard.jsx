@@ -1,18 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import {
-  addedToCollection,
-  addToCollection,
-} from "../redux/features/collectionSlice";
 
-const ResultCard = ({ item }) => {
-  const dispatch = useDispatch();
-
-  const handleAddToCollection = () => {
-    dispatch(addToCollection(item));
-    dispatch(addedToCollection());
-    console.log("hey");
-  };
+const CollectioCard = ({item}) => {
   return (
     <>
       <div className="w-full h-64 sm:h-72 md:h-80 rounded bg-gray-300 relative">
@@ -43,10 +31,10 @@ const ResultCard = ({ item }) => {
           <button
             className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer shrink-0"
             onClick={() => {
-              handleAddToCollection(item);
+              console.log("Remove collection");
             }}
           >
-            save
+            Remove
           </button>
         </div>
       </div>
@@ -54,4 +42,4 @@ const ResultCard = ({ item }) => {
   );
 };
 
-export default ResultCard;
+export default CollectioCard;
