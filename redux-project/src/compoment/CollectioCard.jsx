@@ -1,6 +1,14 @@
 import React from "react";
+import { removeFromCollection, removeToast } from "../redux/features/collectionSlice";
+import { useDispatch } from "react-redux";
 
-const CollectioCard = ({item}) => {
+const CollectioCard = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCollection = () => {
+    dispatch(removeFromCollection(item.id));
+    dispatch(removeToast());
+  };
   return (
     <>
       <div className="w-full h-64 sm:h-72 md:h-80 rounded bg-gray-300 relative">
@@ -30,9 +38,7 @@ const CollectioCard = ({item}) => {
           </h1>
           <button
             className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer shrink-0"
-            onClick={() => {
-              console.log("Remove collection");
-            }}
+            onClick={handleRemoveFromCollection}
           >
             Remove
           </button>
