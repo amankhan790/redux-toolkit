@@ -11,7 +11,7 @@ const ResultCard = ({ item }) => {
   };
   return (
     <>
-      <div className="w-[18vw] h-80 rounded bg-gray-300 relative">
+      <div className="w-full h-64 sm:h-72 md:h-80 rounded bg-gray-300 relative">
         {item.type === "photo" ? (
           <a href={item.url} target="_blank" rel="noopener noreferrer">
             <img
@@ -23,7 +23,6 @@ const ResultCard = ({ item }) => {
         ) : (
           <a href={item.src} target="_blank" rel="noopener noreferrer">
             <video
-              autoPlay
               muted
               loop
               src={item.src}
@@ -33,12 +32,12 @@ const ResultCard = ({ item }) => {
             />
           </a>
         )}
-        <div className="mb-2 absolute bottom-0 flex gap-2 justify-between items-center w-full px-2 py-1">
-          <h1 className="text-lg font-bold pl-2 shadow-md capitalize">
+        <div className="mb-2 absolute bottom-0 flex gap-2 justify-between items-center w-full px-2 py-1 bg-gradient-to-t from-black/50 to-transparent rounded-b">
+          <h1 className="text-sm sm:text-base font-bold pl-2 text-white truncate capitalize">
             {item.tittle.slice(0, 30)}...
           </h1>
           <button
-            className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-3 py-1 cursor-pointer"
+            className="text-white bg-indigo-600 rounded hover:bg-indigo-700 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer shrink-0"
             onClick={() => {
               handleAddToCollection(item);
             }}

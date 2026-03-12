@@ -61,13 +61,9 @@ const ResultGrid = () => {
   if (error) return <h1>error</h1>;
   if (loading) return <h1>Loading...</h1>;
   return (
-    <div className="flex flex-wrap gap-6 w-full  mt-10 justify-between overflow-auto px-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full mt-10 px-4">
       {results.map((item, idx) => {
-        return (
-          <div key={idx}>
-            <ResultCard item={item} />
-          </div>
-        );
+        return <ResultCard key={idx} item={item} />;
       })}
     </div>
   );
