@@ -15,7 +15,7 @@ const ResultCard = ({ item }) => {
   };
   return (
     <>
-      <div className="w-full h-64 sm:h-72 md:h-80 rounded bg-gray-300 relative">
+      <div className="w-full h-64 sm:h-72 md:h-80 rounded bg-gray-300 relative mb-5">
         {item.type === "photo" ? (
           <a href={item.url} target="_blank" rel="noopener noreferrer">
             <img
@@ -32,7 +32,7 @@ const ResultCard = ({ item }) => {
               src={item.src}
               poster={item.thumbnail}
               className="w-full h-full object-cover rounded"
-              controls
+              
             />
           </a>
         )}

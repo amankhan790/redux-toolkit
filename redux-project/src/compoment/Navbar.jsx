@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="bg-blue-700 py-5 flex justify-between font-bold text-xl px-10">
-        <Link to={"/"} className="">
+        <Link to={"/"} className="text-3xl">
           Media Search
         </Link>
         <div className="flex gap-4">

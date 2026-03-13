@@ -58,8 +58,8 @@ const ResultGrid = () => {
     [query, activeTabs],
   );
 
-  if (error) return <h1>error</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1 className="text-center text-2xl p-5">error</h1>;
+  if (loading) return <h1 className="text-center text-2xl p-5">Loading...</h1>;
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full mt-10 px-4">
       {results.map((item, idx) => {
